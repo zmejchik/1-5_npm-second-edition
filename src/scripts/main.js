@@ -1,4 +1,4 @@
-const moment = require('moment/moment');
+const moment = require('moment');
 
 // eslint-disable-next-line no-unused-vars
 function changeMinute(directChangeMinute) {
@@ -58,3 +58,12 @@ function startTimer() {
 
   updateTimer();
 }
+document.getElementById('minusone').addEventListener('click', () => {
+  changeMinute('minusone');
+});
+document.getElementById('plusone').addEventListener('click', () => {
+  changeMinute('plusone');
+});
+document.getElementById('startTimer').addEventListener('click', () => {
+  startTimer();
+});
