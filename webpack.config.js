@@ -4,7 +4,7 @@ module.exports = {
   mode: 'development',
   entry: './src/scripts/main.js', // Ваш основной файл JS для сборки
   output: {
-    path: path.resolve(__dirname, 'public/scripts'), // Путь для сохранения собранного бандла
+    path: path.resolve(__dirname, 'docs/scripts'), // Путь для сохранения собранного бандла
     filename: 'bundle.js', // Имя собранного файла
   },
   module: {
