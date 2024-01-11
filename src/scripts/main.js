@@ -1,6 +1,8 @@
 const moment = require('moment');
-
-// eslint-disable-next-line no-unused-vars
+/**
+ * Function to change the displayed minute count for timer
+ * @param {string} directChangeMinute
+ */
 function changeMinute(directChangeMinute) {
   const divLabelMinutes = window.document.getElementsByClassName('digit-minute')[0];
   let countMinute = Number(divLabelMinutes.innerHTML);
@@ -12,7 +14,9 @@ function changeMinute(directChangeMinute) {
   }
   divLabelMinutes.innerHTML = countMinute;
 }
-
+/**
+ * Function to hide all buttons on the page
+ */
 function hiddenAllButtons() {
   const buttonStart = window.document.getElementsByClassName('start-button')[0];
   const buttonsArray = Array.from(
@@ -23,7 +27,9 @@ function hiddenAllButtons() {
     btn.classList.add('hidden');
   });
 }
-
+/**
+ * Function to change font size and label text
+ */
 function changeFontSize() {
   const label = window.document.getElementById('label');
   label.innerHTML = 'Залишилось';
@@ -31,17 +37,19 @@ function changeFontSize() {
   const digitMinute = window.document.getElementsByClassName('digit-minute')[0];
   digitMinute.style.fontSize = '10em';
 }
-
-// eslint-disable-next-line no-unused-vars
+/**
+ * Function to start the timer
+ */
 function startTimer() {
   hiddenAllButtons();
   changeFontSize();
   const startDate = moment();
+  // Get the interval for the timer from the displayed minute count
   const interval = Number(
     document.getElementsByClassName('digit-minute')[0].innerHTML,
   );
   const endDate = moment(startDate).add(interval, 'minutes');
-
+  // Function to update the timer display
   const updateTimer = () => {
     const currentTime = moment();
     const remainingTime = endDate.diff(currentTime, 'seconds');
@@ -55,9 +63,12 @@ function startTimer() {
       setTimeout(updateTimer, 1000);
     }
   };
-
+  // Start the timer update loop
   updateTimer();
 }
+/**
+ * Event listeners for the minusone, plusone, and startTimer buttons
+ */
 document.getElementById('minusone').addEventListener('click', () => {
   changeMinute('minusone');
 });
