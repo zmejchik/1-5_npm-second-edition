@@ -2,20 +2,20 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/scripts/main.js', // Ваш основной файл JS для сборки
+  entry: './src/scripts/main.js',
   output: {
-    path: path.resolve(__dirname, 'docs/scripts'), // Путь для сохранения собранного бандла
-    filename: 'bundle.js', // Имя собранного файла
+    path: path.resolve(__dirname, 'docs/scripts'),
+    filename: 'bundle.js',
   },
   module: {
     rules: [
       {
-        test: /\.js$/, // Применять правила только к .js файлам
-        exclude: /node_modules/, // Исключить node_modules из обработки
+        test: /\.js$/,
+        exclude: /node_modules/,
         use: {
-          loader: 'babel-loader', // Использовать Babel для транспиляции JavaScript
+          loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'], // Настройки Babel для ES6+
+            presets: ['@babel/preset-env'],
           },
         },
       },
