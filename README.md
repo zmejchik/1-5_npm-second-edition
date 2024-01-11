@@ -6,17 +6,22 @@ You can view it at <https://zmejchik.github.io/1-5_npm-second-edition/>. Or by d
 
 ## Description of the project
 
-This project utilizes the following technologies:
+У цьому проекті використовуються такі технології:
 
-HTML
-SCSS
-JavaScript
-Moment.js library (<https://momentjs.com>)
-Additionally, Node.js is used for project building, and the following tools are configured and employed:
+- HTML
+- SCSS
+- JavaScript
+- Бібліотека моментів (Moment.js, [посилання](https://momentjs.com))
 
-Hasky
-ESLint
-Webpack
+Також використано для побудови:
+
+- Node.js
+
+На проекті налаштовано та використано наступні інструменти:
+
+- Hasky
+- ESLint
+- Webpack
 
 ## License
 
