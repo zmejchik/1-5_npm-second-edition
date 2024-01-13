@@ -54,13 +54,24 @@ function startTimer() {
     const currentTime = moment();
     const remainingTime = endDate.diff(currentTime, 'seconds');
     if (remainingTime >= 0) {
-      const minutes = Math.floor(remainingTime / 60);
-      const seconds = remainingTime - minutes * 60;
-      document.getElementsByClassName('digit-minute')[0].innerHTML = moment()
-        .minutes(minutes)
-        .second(seconds)
-        .format('mm:ss');
+      const hours = Math.floor(remainingTime / 3600);
+      const minutes = Math.floor((remainingTime - hours * 3600) / 60);
+      const seconds = remainingTime - hours * 3600 - minutes * 60;
+      if (hours === 0) {
+        document.getElementsByClassName('digit-minute')[0].innerHTML = moment()
+          .minutes(minutes)
+          .second(seconds)
+          .format('mm:ss');
+      } else {
+        document.getElementsByClassName('digit-minute')[0].innerHTML = moment()
+          .hour(hours)
+          .minutes(minutes)
+          .second(seconds)
+          .format('HH:mm:ss');
+      }
       setTimeout(updateTimer, 1000);
+    } else {
+      clearTimeout(updateTimer);
     }
   };
   // Start the timer update loop
